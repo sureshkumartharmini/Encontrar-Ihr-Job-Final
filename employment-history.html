@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Employment History - Encontrar Ihr Job</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #242f3e;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 24px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 12px;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      padding: 7px 14px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    nav a:hover i,
+    nav a:focus i {
+      color: #fff;
+    }
+
+    header {
+      position: relative;
+      background: url('405961-PE7CZK-625.jpg') center/cover no-repeat;
+      height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(36, 47, 62, 0.6);
+      z-index: 0;
+    }
+
+    header>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    main {
+      max-width: 1000px;
+      background: #fff;
+      margin: 40px auto 80px;
+      border-radius: 12px;
+      padding: 40px 40px 50px;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-top: 40px;
+      border-left: 6px solid #1abc9c;
+      padding-left: 12px;
+      color: #242f3e;
+    }
+
+    h3 {
+      margin-top: 24px;
+      color: #1a3e4c;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #4a4a4a;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      font-size: 1.05rem;
+      color: #555;
+      margin-left: 28px;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #777;
+      background: #f9fafb;
+      letter-spacing: 1.2px;
+    }
+
+    #signOutBtn {
+      all: unset;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #signOutBtn:hover,
+    #signOutBtn:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        margin: 20px 15px 40px;
+        padding: 30px 25px 40px;
+      }
+
+      header h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Employment History Pioneers</h1>
+  </header>
+
+  <nav>
+    <a href="index.html"><i class="fas fa-info-circle"></i>About Us</a>
+    <a href="application.html"><i class="fas fa-file-signature"></i>Apply for Job</a>
+    <a href="articles.html"><i class="fas fa-book-open"></i>Job Articles</a>
+    <a href="jobs.html"><i class="fas fa-briefcase"></i>Job Listings</a>
+    <a href="employment-history.html"><i class="fas fa-globe"></i>Global & Local History</a>
+    <a href="history.html"><i class="fas fa-history"></i>Application History</a>
+    <button id="signOutBtn" onclick="signOut()">Sign Out</button>
+  </nav>
+  <script>
+    function signOut() {
+      localStorage.removeItem("loggedIn");
+      alert("You have signed out.");
+      window.location.href = "signin.html";
+    }
+  </script>
+
+  <main>
+    <h2>Global Great Personalities & Companies in Employment History</h2>
+
+    <h3>Manufacturing/Industrialist</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="henryford.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Henry Ford — Revolutionized assembly lines and improved worker welfare with better wages
+      and workweeks.</p>
+    <p><strong>Company:</strong> Ford Motor Company — Pioneered mass production and modern labor practices.</p>
+
+    <h3>Technology/Innovation</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="stevejobs.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Steve Jobs — Transformed the tech workforce with groundbreaking products at Apple Inc.
+    </p>
+    <p><strong>Company:</strong> Apple Inc. — Expanded tech jobs in hardware, software, retail, and design globally.</p>
+
+    <h3>Retail/Logistics</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="walmart.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Sam Walton — Revolutionized global retail through Walmart, creating millions of jobs.
+    </p>
+    <p><strong>Company:</strong> Walmart — Transformed logistics and supply chains with massive employment impact.</p>
+
+    <h3>Finance/Investment</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="jpmorgan.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> J.P. Morgan — Helped shape global finance, enabling large-scale employment through
+      consolidation and growth.</p>
+    <p><strong>Company:</strong> JPMorgan Chase — A leader in global finance and a creator of specialized jobs.</p>
+
+    <h3>Human Resources/Management Consulting</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="taylor.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Frederick W. Taylor — Pioneered Scientific Management, influencing the birth of modern
+      HR and management.</p>
+    <p><strong>Company:</strong> Hay Group — Helped formalize HR strategies and organizational planning.</p>
+
+    <h3>E-commerce/Cloud Computing</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="jeff.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Jeff Bezos — Changed global retail and cloud computing employment with Amazon and AWS.
+    </p>
+    <p><strong>Company:</strong> Amazon — Created roles across tech, logistics, and data services worldwide.</p>
+
+    <h3>Social Activism/Labor Rights</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="ceasar.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Cesar Chavez — Fought for workers’ rights and better labor conditions in agriculture.
+    </p>
+    <p><strong>Organization:</strong> United Farm Workers — Strengthened organized labor’s role in employment justice.
+    </p>
+
+    <h3>Media/Broadcasting</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="rupert.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Rupert Murdoch — Built global media networks, shaping journalism and production jobs.
+    </p>
+    <p><strong>Company:</strong> News Corporation — A massive global employer in publishing and media.</p>
+
+    <h3>Healthcare</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="florence.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Florence Nightingale — Professionalized nursing and influenced global healthcare
+      employment standards.</p>
+    <p><strong>Organization:</strong> Mayo Clinic — Integrated care and research with major employment in healthcare.
+    </p>
+
+    <h3>Education/Online Learning</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="khan.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> Sal Khan — Democratized online education with Khan Academy, creating EdTech careers.</p>
+    <p><strong>Company:</strong> Coursera / edX — Redefined access to education and enabled new roles in online
+      learning.</p>
+
+    <h2>Sri Lankan Personalities & Companies in Employment History</h2>
+
+    <h3>Trade Unionism/Labor Rights</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="gunasinga.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Person:</strong> A. Ekanayake Gunasinha — Founded the Ceylon Labour Union, championing workers’ rights.
+    </p>
+
+    <h3>Industrial Development/Local Manufacturing</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="harichandra.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Company:</strong> Harischandra Mills PLC — Pioneered employee welfare before national laws.</p>
+
+    <h3>Conglomerates/Diversified Employment</h3>
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="keells.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+    <p><strong>Company:</strong> John Keells Holdings PLC — A diversified employer impacting sectors from tourism to
+      finance.</p>
+
+    <h3>Tea Industry/Plantations</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="delma.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Company:</strong> Dilmah Tea — Revolutionized tea export by promoting local branding and skilled jobs.
+    </p>
+
+    <h3>Garment Industry/Manufacturing</h3>
+
+    <div style="display: flex; justify-content: center; align-items: center; padding: 40px 0;">
+      <img src="mas.jpg" alt="Centered Image" style="max-width: 100%; height: auto;" />
+    </div>
+
+    <p><strong>Company:</strong> MAS Holdings — Empowered local female workers and modernized the apparel industry.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Encontrar Ihr Job. All rights reserved.
+  </footer>
+</body>
+
+</html>

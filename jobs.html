@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Listings - Encontrar Ihr Job</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: #333;
+    }
+
+    header {
+      background-image: url('3d-illustration-pen-putting-blue-ticks-paper.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    nav {
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 6px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      gap: 20px;
+    }
+
+    .job {
+      background: #fefefe;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-left: 6px solid #3498db;
+      transition: transform 0.3s ease;
+    }
+
+    .job:hover {
+      transform: translateY(-5px);
+    }
+
+    .job h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .job p {
+      margin: 6px 0;
+    }
+
+    .job span {
+      display: inline-block;
+      background: #ecf0f1;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+      font-size: 0.9em;
+      margin-right: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f4f4f4;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 50px;
+    }
+
+    #signOutBtn {
+      all: unset;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #signOutBtn:hover,
+    #signOutBtn:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      .jobs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Available Jobs in Sri Lanka</h1>
+  </header>
+
+  <nav>
+    <a href="index.html"><i class="fas fa-info-circle"></i>About us</a>
+    <a href="application.html"><i class="fas fa-file-signature"></i>Apply</a>
+    <a href="articles.html"><i class="fas fa-book-open"></i>Articles</a>
+    <a href="jobs.html"><i class="fas fa-briefcase"></i>Jobs</a>
+    <a href="employment-history.html"><i class="fas fa-globe"></i>Global & Local History</a>
+    <a href="history.html"><i class="fas fa-history"></i>History</a>
+    <button id="signOutBtn" onclick="signOut()">Sign Out</button>
+  </nav>
+  <script>
+    function signOut() {
+      localStorage.removeItem("loggedIn");
+      alert("You have signed out.");
+      window.location.href = "signin.html";
+    }
+  </script>
+
+  <main>
+    <div class="jobs-grid">
+
+      <div class="job">
+        <h3>Accountant</h3>
+        <p><strong>Company:</strong> Sterling Finance</p>
+        <p><strong>Location:</strong> Batticaloa</p>
+        <p><strong>Salary:</strong> Rs. 70,000 - Rs. 100,000</p>
+        <span>Full-Time</span>
+        <span>Accounting</span>
+      </div>
+
+      <div class="job">
+        <h3>Agricultural Officer</h3>
+        <p><strong>Company:</strong> Agro Innovations</p>
+        <p><strong>Location:</strong> Polonnaruwa</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 85,000</p>
+        <span>Full-Time</span>
+        <span>Agriculture</span>
+      </div>
+
+      <div class="job">
+        <h3>Architect</h3>
+        <p><strong>Company:</strong> Design & Build Associates</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 95,000 - Rs. 150,000</p>
+        <span>Full-Time</span>
+        <span>Architecture</span>
+      </div>
+
+      <div class="job">
+        <h3>Architectural Assistant</h3>
+        <p><strong>Company:</strong> Modern Designs</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 45,000 - Rs. 70,000</p>
+        <span>Full-Time</span>
+        <span>Architecture</span>
+      </div>
+
+      <div class="job">
+        <h3>Automobile Engineer</h3>
+        <p><strong>Company:</strong> Drive Tech Innovations</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 85,000 - Rs. 125,000</p>
+        <span>Full-Time</span>
+        <span>Engineering / Automotive</span>
+      </div>
+
+      <div class="job">
+        <h3>Bakery Assistant</h3>
+        <p><strong>Company:</strong> Sweet Treats Bakery</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 30,000 - Rs. 45,000</p>
+        <span>Full-Time</span>
+        <span>Food & Beverage</span>
+      </div>
+
+      <div class="job">
+        <h3>Bank Teller</h3>
+        <p><strong>Company:</strong> National Bank of Sri Lanka</p>
+        <p><strong>Location:</strong> Various Branches</p>
+        <p><strong>Salary:</strong> Rs. 40,000 - Rs. 60,000</p>
+        <span>Full-Time</span>
+        <span>Banking</span>
+      </div>
+
+      <div class="job">
+        <h3>Beautician</h3>
+        <p><strong>Company:</strong> Glamour Salon</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 35,000 - Rs. 55,000 (plus commissions)</p>
+        <span>Full-Time</span>
+        <span>Beauty</span>
+      </div>
+
+      <div class="job">
+        <h3>Bookkeeper</h3>
+        <p><strong>Company:</strong> Small Business Accounting</p>
+        <p><strong>Location:</strong> Kandy</p>
+        <p><strong>Salary:</strong> Rs. 35,000 - Rs. 55,000</p>
+        <span>Full-Time</span>
+        <span>Accounting</span>
+      </div>
+
+      <div class="job">
+        <h3>Brand Executive</h3>
+        <p><strong>Company:</strong> Consumer Goods PLC</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 65,000 - Rs. 95,000</p>
+        <span>Full-Time</span>
+        <span>Marketing</span>
+      </div>
+
+      <div class="job">
+        <h3>Business Development Executive</h3>
+        <p><strong>Company:</strong> Growth Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 70,000 - Rs. 110,000 (plus incentives)</p>
+        <span>Full-Time</span>
+        <span>Business Development</span>
+      </div>
+
+      <div class="job">
+        <h3>Call Center Agent (Sinhala/Tamil)</h3>
+        <p><strong>Company:</strong> Customer Care Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 40,000 - Rs. 60,000</p>
+        <span>Full-Time</span>
+        <span>Customer Service</span>
+      </div>
+
+      <div class="job">
+        <h3>Call Center Team Leader</h3>
+        <p><strong>Company:</strong> Global Connect Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 90,000</p>
+        <span>Full-Time</span>
+        <span>Customer Service</span>
+      </div>
+
+      <div class="job">
+        <h3>Chef</h3>
+        <p><strong>Company:</strong> Gourmet Kitchen</p>
+        <p><strong>Location:</strong> Galle</p>
+        <p><strong>Salary:</strong> Rs. 50,000 - Rs. 85,000</p>
+        <span>Full-Time</span>
+        <span>Hospitality</span>
+      </div>
+
+      <div class="job">
+        <h3>Civil Draftsman</h3>
+        <p><strong>Company:</strong> Engineering Designs</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 50,000 - Rs. 75,000</p>
+        <span>Full-Time</span>
+        <span>Engineering</span>
+      </div>
+
+      <div class="job">
+        <h3>Civil Engineer</h3>
+        <p><strong>Company:</strong> Mega Structures PLC</p>
+        <p><strong>Location:</strong> Galle</p>
+        <p><strong>Salary:</strong> Rs. 90,000 - Rs. 130,000</p>
+        <span>Full-Time</span>
+        <span>Engineering</span>
+      </div>
+
+      <div class="job">
+        <h3>Commercial Pilot</h3>
+        <p><strong>Company:</strong> Sri Lankan Airlines</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 250,000 - Rs. 400,000</p>
+        <span>Full-Time</span>
+        <span>Aviation</span>
+      </div>
+
+      <div class="job">
+        <h3>Computer Operator</h3>
+        <p><strong>Company:</strong> Tech Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 30,000 - Rs. 50,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Construction Supervisor</h3>
+        <p><strong>Company:</strong> BuildPro Contractors</p>
+        <p><strong>Location:</strong> Kandy</p>
+        <p><strong>Salary:</strong> Rs. 70,000 - Rs. 110,000</p>
+        <span>Full-Time</span>
+        <span>Construction</span>
+      </div>
+
+      <div class="job">
+        <h3>Customer Service Officer</h3>
+        <p><strong>Company:</strong> TeleSupport Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 40,000 - Rs. 60,000</p>
+        <span>Full-Time</span>
+        <span>Customer Service</span>
+      </div>
+
+      <div class="job">
+        <h3>Data Entry Operator</h3>
+        <p><strong>Company:</strong> DataCorp Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 25,000 - Rs. 40,000</p>
+        <span>Full-Time</span>
+        <span>Data Entry</span>
+      </div>
+
+      <div class="job">
+        <h3>Database Administrator</h3>
+        <p><strong>Company:</strong> NetTech Systems</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 80,000 - Rs. 120,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Dental Assistant</h3>
+        <p><strong>Company:</strong> Smile Care Clinic</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 30,000 - Rs. 45,000</p>
+        <span>Full-Time</span>
+        <span>Healthcare</span>
+      </div>
+
+      <div class="job">
+        <h3>Designer (Graphic)</h3>
+        <p><strong>Company:</strong> Creative Minds</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 50,000 - Rs. 80,000</p>
+        <span>Full-Time</span>
+        <span>Design</span>
+      </div>
+
+      <div class="job">
+        <h3>Driver (Heavy Vehicle)</h3>
+        <p><strong>Company:</strong> Logistics Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 40,000 - Rs. 65,000</p>
+        <span>Full-Time</span>
+        <span>Transport</span>
+      </div>
+
+      <div class="job">
+        <h3>Electrical Engineer</h3>
+        <p><strong>Company:</strong> PowerGrid Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 90,000 - Rs. 140,000</p>
+        <span>Full-Time</span>
+        <span>Engineering</span>
+      </div>
+
+      <div class="job">
+        <h3>Electrician</h3>
+        <p><strong>Company:</strong> Safe Electric</p>
+        <p><strong>Location:</strong> Kandy</p>
+        <p><strong>Salary:</strong> Rs. 40,000 - Rs. 70,000</p>
+        <span>Full-Time</span>
+        <span>Engineering</span>
+      </div>
+
+      <div class="job">
+        <h3>Engineer - Chemical</h3>
+        <p><strong>Company:</strong> Lanka Chemicals Ltd</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 85,000 - Rs. 130,000</p>
+        <span>Full-Time</span>
+        <span>Engineering</span>
+      </div>
+
+      <div class="job">
+        <h3>Engineer - Mechanical</h3>
+        <p><strong>Company:</strong> Mechanical Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 90,000 - Rs. 135,000</p>
+        <span>Full-Time</span>
+        <span>Engineering</span>
+      </div>
+
+      <div class="job">
+        <h3>Event Organizer</h3>
+        <p><strong>Company:</strong> Eventia</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 50,000 - Rs. 90,000</p>
+        <span>Full-Time</span>
+        <span>Events</span>
+      </div>
+
+      <div class="job">
+        <h3>Fashion Designer</h3>
+        <p><strong>Company:</strong> TrendSetters</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 55,000 - Rs. 95,000</p>
+        <span>Full-Time</span>
+        <span>Fashion</span>
+      </div>
+
+      <div class="job">
+        <h3>Finance Executive</h3>
+        <p><strong>Company:</strong> FinPro Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 70,000 - Rs. 110,000</p>
+        <span>Full-Time</span>
+        <span>Finance</span>
+      </div>
+
+      <div class="job">
+        <h3>Firefighter</h3>
+        <p><strong>Company:</strong> Sri Lanka Fire Service</p>
+        <p><strong>Location:</strong> Various</p>
+        <p><strong>Salary:</strong> Rs. 45,000 - Rs. 70,000</p>
+        <span>Full-Time</span>
+        <span>Emergency Services</span>
+      </div>
+
+      <div class="job">
+        <h3>Flight Attendant</h3>
+        <p><strong>Company:</strong> Sri Lankan Airlines</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 50,000 - Rs. 80,000</p>
+        <span>Full-Time</span>
+        <span>Aviation</span>
+      </div>
+
+      <div class="job">
+        <h3>Food & Beverage Manager</h3>
+        <p><strong>Company:</strong> Luxury Hotels Group</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 100,000 - Rs. 150,000</p>
+        <span>Full-Time</span>
+        <span>Hospitality</span>
+      </div>
+
+      <div class="job">
+        <h3>Gardener</h3>
+        <p><strong>Company:</strong> GreenScapes</p>
+        <p><strong>Location:</strong> Kandy</p>
+        <p><strong>Salary:</strong> Rs. 25,000 - Rs. 40,000</p>
+        <span>Full-Time</span>
+        <span>Agriculture</span>
+      </div>
+
+      <div class="job">
+        <h3>Graphic Designer</h3>
+        <p><strong>Company:</strong> Pixel Perfect</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 50,000 - Rs. 80,000</p>
+        <span>Full-Time</span>
+        <span>Design</span>
+      </div>
+
+      <div class="job">
+        <h3>Health Inspector</h3>
+        <p><strong>Company:</strong> Ministry of Health</p>
+        <p><strong>Location:</strong> Various</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 90,000</p>
+        <span>Full-Time</span>
+        <span>Healthcare</span>
+      </div>
+
+      <div class="job">
+        <h3>Hotel Receptionist</h3>
+        <p><strong>Company:</strong> Sunshine Hotels</p>
+        <p><strong>Location:</strong> Negombo</p>
+        <p><strong>Salary:</strong> Rs. 30,000 - Rs. 50,000</p>
+        <span>Full-Time</span>
+        <span>Hospitality</span>
+      </div>
+
+      <div class="job">
+        <h3>HR Executive</h3>
+        <p><strong>Company:</strong> PeopleFirst Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 65,000 - Rs. 100,000</p>
+        <span>Full-Time</span>
+        <span>Human Resources</span>
+      </div>
+
+      <div class="job">
+        <h3>IT Technician</h3>
+        <p><strong>Company:</strong> TechCare Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 45,000 - Rs. 70,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Junior Software Developer</h3>
+        <p><strong>Company:</strong> CodeCrafters</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 90,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Lawyer</h3>
+        <p><strong>Company:</strong> Legal Partners</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 100,000 - Rs. 180,000</p>
+        <span>Full-Time</span>
+        <span>Legal</span>
+      </div>
+
+      <div class="job">
+        <h3>Lecturer (University)</h3>
+        <p><strong>Company:</strong> University of Colombo</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 80,000 - Rs. 120,000</p>
+        <span>Full-Time</span>
+        <span>Education</span>
+      </div>
+
+      <div class="job">
+        <h3>Logistics Coordinator</h3>
+        <p><strong>Company:</strong> Rapid Logistics</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 55,000 - Rs. 85,000</p>
+        <span>Full-Time</span>
+        <span>Logistics</span>
+      </div>
+
+      <div class="job">
+        <h3>Machine Operator</h3>
+        <p><strong>Company:</strong> Textile Lanka</p>
+        <p><strong>Location:</strong> Gampaha</p>
+        <p><strong>Salary:</strong> Rs. 30,000 - Rs. 45,000</p>
+        <span>Full-Time</span>
+        <span>Manufacturing</span>
+      </div>
+
+      <div class="job">
+        <h3>Marketing Executive</h3>
+        <p><strong>Company:</strong> BrandBoost</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 95,000</p>
+        <span>Full-Time</span>
+        <span>Marketing</span>
+      </div>
+
+      <div class="job">
+        <h3>Mechanical Technician</h3>
+        <p><strong>Company:</strong> AutoTech Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 45,000 - Rs. 70,000</p>
+        <span>Full-Time</span>
+        <span>Engineering / Automotive</span>
+      </div>
+
+      <div class="job">
+        <h3>Nurse</h3>
+        <p><strong>Company:</strong> City Hospital</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 45,000 - Rs. 75,000</p>
+        <span>Full-Time</span>
+        <span>Healthcare</span>
+      </div>
+
+      <div class="job">
+        <h3>Office Assistant</h3>
+        <p><strong>Company:</strong> Office Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 25,000 - Rs. 40,000</p>
+        <span>Full-Time</span>
+        <span>Administration</span>
+      </div>
+
+      <div class="job">
+        <h3>Pharmacist</h3>
+        <p><strong>Company:</strong> HealthCare Pharmacy</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 95,000</p>
+        <span>Full-Time</span>
+        <span>Healthcare</span>
+      </div>
+
+      <div class="job">
+        <h3>Plumber</h3>
+        <p><strong>Company:</strong> FixIt Services</p>
+        <p><strong>Location:</strong> Kandy</p>
+        <p><strong>Salary:</strong> Rs. 35,000 - Rs. 55,000</p>
+        <span>Full-Time</span>
+        <span>Maintenance</span>
+      </div>
+
+      <div class="job">
+        <h3>Police Officer</h3>
+        <p><strong>Company:</strong> Sri Lanka Police Department</p>
+        <p><strong>Location:</strong> Various</p>
+        <p><strong>Salary:</strong> Rs. 45,000 - Rs. 75,000</p>
+        <span>Full-Time</span>
+        <span>Security</span>
+      </div>
+
+      <div class="job">
+        <h3>Project Manager</h3>
+        <p><strong>Company:</strong> BuildRight Projects</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 120,000 - Rs. 180,000</p>
+        <span>Full-Time</span>
+        <span>Management</span>
+      </div>
+
+      <div class="job">
+        <h3>Quality Assurance Engineer</h3>
+        <p><strong>Company:</strong> SoftTest Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 70,000 - Rs. 110,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Receptionist</h3>
+        <p><strong>Company:</strong> City Center Hotel</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 30,000 - Rs. 50,000</p>
+        <span>Full-Time</span>
+        <span>Hospitality</span>
+      </div>
+
+      <div class="job">
+        <h3>Sales Executive</h3>
+        <p><strong>Company:</strong> SellWell Enterprises</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 40,000 - Rs. 70,000</p>
+        <span>Full-Time</span>
+        <span>Sales</span>
+      </div>
+
+      <div class="job">
+        <h3>Security Guard</h3>
+        <p><strong>Company:</strong> SecureIt Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 25,000 - Rs. 40,000</p>
+        <span>Full-Time</span>
+        <span>Security</span>
+      </div>
+
+      <div class="job">
+        <h3>Software Engineer</h3>
+        <p><strong>Company:</strong> Innovatech Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 80,000 - Rs. 130,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Software Tester</h3>
+        <p><strong>Company:</strong> TestPro Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 90,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Store Manager</h3>
+        <p><strong>Company:</strong> RetailHub</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 70,000 - Rs. 110,000</p>
+        <span>Full-Time</span>
+        <span>Retail</span>
+      </div>
+
+      <div class="job">
+        <h3>Teacher</h3>
+        <p><strong>Company:</strong> Sunshine International School</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 40,000 - Rs. 70,000</p>
+        <span>Full-Time</span>
+        <span>Education</span>
+      </div>
+
+      <div class="job">
+        <h3>Technical Support Engineer</h3>
+        <p><strong>Company:</strong> HelpDesk Solutions</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 50,000 - Rs. 80,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+      <div class="job">
+        <h3>Translator</h3>
+        <p><strong>Company:</strong> Language Link</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 35,000 - Rs. 60,000</p>
+        <span>Full-Time</span>
+        <span>Language</span>
+      </div>
+
+      <div class="job">
+        <h3>Transport Manager</h3>
+        <p><strong>Company:</strong> MoveIt Logistics</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 80,000 - Rs. 120,000</p>
+        <span>Full-Time</span>
+        <span>Transport</span>
+      </div>
+
+      <div class="job">
+        <h3>Veterinarian</h3>
+        <p><strong>Company:</strong> PetCare Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 100,000</p>
+        <span>Full-Time</span>
+        <span>Healthcare</span>
+      </div>
+
+      <div class="job">
+        <h3>Waiter/Waitress</h3>
+        <p><strong>Company:</strong> Foodies Restaurant</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 25,000 - Rs. 40,000</p>
+        <span>Full-Time</span>
+        <span>Hospitality</span>
+      </div>
+
+      <div class="job">
+        <h3>Web Developer</h3>
+        <p><strong>Company:</strong> WebWorks Lanka</p>
+        <p><strong>Location:</strong> Colombo</p>
+        <p><strong>Salary:</strong> Rs. 60,000 - Rs. 100,000</p>
+        <span>Full-Time</span>
+        <span>IT</span>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Encontrar Ihr Job
+  </footer>
+
+</body>
+
+</html>

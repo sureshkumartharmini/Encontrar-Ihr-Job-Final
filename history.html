@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application History - Encontrar Ihr Job</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #eef2f3, #ffffff);
+      margin: 0;
+      color: #333;
+    }
+
+    header {
+      background-image: url('6620126.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      margin: 0;
+    }
+
+    nav {
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 6px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #1abc9c;
+      transform: translateY(-1px);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .application {
+      border-left: 5px solid #007bff;
+      padding: 20px;
+      margin-bottom: 25px;
+      background: #f9f9f9;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .application h3 {
+      margin: 0 0 10px 0;
+      color: #2c3e50;
+      font-size: 1.5rem;
+    }
+
+    .application p {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .application strong {
+      color: #007bff;
+    }
+
+    .no-data {
+      text-align: center;
+      color: #888;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f4f4f4;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 50px;
+    }
+
+    #signOutBtn {
+      all: unset;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #signOutBtn:hover,
+    #signOutBtn:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .application {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Application History</h1>
+  </header>
+
+  <nav>
+    <a href="index.html"><i class="fas fa-info-circle"></i> About us</a>
+    <a href="application.html"><i class="fas fa-file-signature"></i> Apply</a>
+    <a href="articles.html"><i class="fas fa-book-open"></i> Articles</a>
+    <a href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+    <a href="employment-history.html"><i class="fas fa-globe"></i>Global & Local History</a>
+    <a href="history.html"><i class="fas fa-history"></i> History</a>
+    <button id="signOutBtn" onclick="signOut()">Sign Out</button>
+  </nav>
+  <script>
+    function signOut() {
+      localStorage.removeItem("loggedIn");
+      alert("You have signed out.");
+      window.location.href = "signin.html";
+    }
+  </script>
+
+  <main id="historyContent">
+    <p class="no-data">Loading application history...</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Encontrar Ihr Job
+  </footer>
+
+  <script>
+    const container = document.getElementById("historyContent");
+    const submissions = JSON.parse(localStorage.getItem("jobApplications")) || [];
+
+    if (submissions.length === 0) {
+      container.innerHTML = '<p class="no-data">No applications submitted yet.</p>';
+    } else {
+      container.innerHTML = '';
+      submissions.forEach((app, index) => {
+        const div = document.createElement("div");
+        div.className = "application";
+        div.innerHTML = `
+          <h3>Application #${index + 1}</h3>
+          <p><strong>Name:</strong> ${app.fullName}</p>
+          <p><strong>NIC:</strong> ${app.nic}</p>
+          <p><strong>Gender:</strong> ${app.gender}</p>
+          <p><strong>Date of Birth:</strong> ${app.dob}</p>
+          <p><strong>District:</strong> ${app.district}</p>
+          <p><strong>Job Applied:</strong> ${app.job}</p>
+          <p><strong>Education (O/L & A/L):</strong> ${app.olAl}</p>
+          <p><strong>Marital Status:</strong> ${app.marital}</p>
+          <p><strong>Courses Done:</strong> ${app.courses || 'N/A'}</p>
+          <p><strong>User Thoughts:</strong> ${app.thoughts || 'N/A'}</p>
+          <p><strong>Image File:</strong> ${app.imageName}</p>
+          <p><strong>Certificate PDF:</strong> ${app.certificateName}</p>
+          <p><strong>Course Certificate:</strong> ${app.courseCertName || 'N/A'}</p>
+          <p><strong>Submitted At:</strong> ${new Date(app.submittedAt).toLocaleString()}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+  </script>
+
+</body>
+
+</html>

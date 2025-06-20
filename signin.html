@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign In - Encontrar Ihr Job</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('freepik__a-solitary-oak-tree-silhouetted-against-a-neonlit-__21255.jpeg') center/cover no-repeat;
+      color: #333;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #242f3e;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      align-items: center;
+    }
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    nav a:hover, nav a:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+    
+    #signOutBtn {
+      margin-left: auto;
+      background-color: #e74c3c;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: none; 
+    }
+    #signOutBtn:hover {
+      background-color: #c0392b;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 1000px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+    .intro-left, .form-right {
+      padding: 40px;
+      flex: 1;
+    }
+    .intro-left {
+      background-color: #ecf3f9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .intro-left h3 {
+      font-size: 1.8rem;
+      color: #1a2d45;
+      margin-bottom: 16px;
+    }
+    .intro-left p {
+      font-size: 1.1rem;
+      color: #4a4a4a;
+    }
+    .intro-left img {
+      width: 120px;
+      margin-top: 20px;
+    }
+    .form-right {
+      background: #f7f9fc;
+      border-left: 2px solid #e0e6ed;
+    }
+    .form-right h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #242f3e;
+      text-align: center;
+    }
+    .form-right input {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .form-right button {
+      width: 100%;
+      padding: 14px;
+      background-color: #1abc9c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .form-right button:hover {
+      background-color: #16a085;
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .intro-left, .form-right {
+        border: none;
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" onclick="restrictedAccess('index.html')"><i class="fas fa-info-circle"></i>About Us</a>
+  <a href="#" onclick="restrictedAccess('application.html')"><i class="fas fa-file-signature"></i>Apply for Job</a>
+  <a href="#" onclick="restrictedAccess('articles.html')"><i class="fas fa-book-open"></i>Job Articles</a>
+  <a href="#" onclick="restrictedAccess('jobs.html')"><i class="fas fa-briefcase"></i>Job Listings</a>
+  <a href="#" onclick="restrictedAccess('employment-history.html')"><i class="fas fa-globe"></i>Global & Local History</a>
+  <a href="#" onclick="restrictedAccess('history.html')"><i class="fas fa-history"></i>Application History</a>
+  <button id="signOutBtn" onclick="signOut()">Sign Out</button>
+</nav>
+
+<div class="container">
+  <div class="intro-left">
+    <h3>This is your career adviser</h3>
+    <p>Sign in and get the experience including job knowledge and employment chances of <strong>Encontrar Ihr Job</strong>.</p>
+    <img src="ChatGPT Image Jun 18, 2025, 06_44_43 AM.png" alt="Logo" />
+  </div>
+  <div class="form-right">
+    <h2>Sign In</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Sign In</button>
+  </div>
+</div>
+
+<script>
+  if (localStorage.getItem("loggedIn") === "true") {
+    window.location.href = "index.html";
+  }
+
+  const usersDB = {
+    "ravi": "2345",
+    "host": "wxyz",
+    "guest": "guest10"
+  };
+
+  function login() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
+      alert("Please enter both username and password.");
+      return;
+    }
+
+    if (usersDB[username] && usersDB[username] === password) {
+      localStorage.setItem("loggedIn", "true");
+      alert("Login successful!");
+      window.location.href = "index.html";
+    } else {
+      alert("Invalid username or password. Try again.");
+    }
+  }
+
+  function restrictedAccess(page) {
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+    if (isLoggedIn) {
+      window.location.href = page;
+    } else {
+      alert("You must sign in to access this page.");
+    }
+  };
+
+  function signOut() {
+    localStorage.removeItem("loggedIn");
+    alert("You have signed out.");
+    location.reload();
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+    const navLinks = document.querySelectorAll("nav a");
+    const signOutBtn = document.getElementById("signOutBtn");
+
+    navLinks.forEach(link => {
+      if (!isLoggedIn) {
+        link.style.color = "#7a7a7a";
+        link.style.cursor = "pointer";
+
+        link.replaceWith(link.cloneNode(true));
+      }
+    });
+
+    if (!isLoggedIn) {
+      document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", function(event) {
+          event.preventDefault();
+          alert("Please sign in to use the navigator bar.");
+        });
+      });
+
+      signOutBtn.style.display = "none";
+    } else {
+      signOutBtn.style.display = "inline-block";
+    }
+  });
+</script>
+
+</body>
+</html>

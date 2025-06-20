@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Articles - Encontrar Ihr Job</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      margin: 0;
+      color: #333;
+    }
+
+    header {
+      background-image: url('4163433.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      margin: 0;
+    }
+
+    nav {
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 6px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      font-size: 1rem;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    article {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #242f3e;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    figure {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    figure>div {
+      display: inline-block;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    figure img {
+      border-radius: 12px;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    figcaption {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    ul {
+      font-size: 1.1rem;
+      margin-left: 20px;
+      padding-left: 10px;
+      color: #444;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f4f4f4;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 50px;
+    }
+
+    #signOutBtn {
+      all: unset;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #signOutBtn:hover,
+    #signOutBtn:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      main {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Job Articles & Education</h1>
+  </header>
+
+  <nav>
+    <a href="index.html"><i class="fas fa-info-circle"></i>About us</a>
+    <a href="application.html"><i class="fas fa-file-signature"></i>Apply</a>
+    <a href="articles.html"><i class="fas fa-book-open"></i>Articles</a>
+    <a href="jobs.html"><i class="fas fa-briefcase"></i>Jobs</a>
+    <a href="employment-history.html"><i class="fas fa-globe"></i>Global & Local History</a>
+    <a href="history.html"><i class="fas fa-history"></i>History</a>
+    <button id="signOutBtn" onclick="signOut()">Sign Out</button>
+  </nav>
+  <script>
+    function signOut() {
+      localStorage.removeItem("loggedIn");
+      alert("You have signed out.");
+      window.location.href = "signin.html";
+    }
+  </script>
+
+  <main>
+    <article>
+      <h2>How to Write a Professional CV</h2>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="freepik__the-style-is-candid-image-photography-with-natural__96243.jpeg" alt="Illustration"
+            style="width: 550px; height: 500px;" />
+        </div>
+        <figcaption>CV</figcaption>
+      </figure>
+      <p>Your CV is your first opportunity to make an impression. It should be clear, accurate, and tailored to each job
+        you apply for. Include only relevant details like your education, job experience, certifications, languages, and
+        skills. Always proofread to avoid grammar errors. If possible, include a short summary at the top that
+        highlights your strengths.</p>
+    </article>
+
+    <article>
+      <h2>Interview Tips for First-Time Applicants</h2>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="freepik__the-style-is-candid-image-photography-with-natural__96244.jpeg" alt="Illustration"
+            style="width: 550px; height: 500px;" />
+        </div>
+        <figcaption>A person facing Interview</figcaption>
+      </figure>
+      <p>Interviews can be intimidating, but preparation builds confidence. Always research the company beforehand.
+        Practice answering common questions like "Tell me about yourself" or "Why should we hire you?" Dress
+        appropriately for the industry and arrive at least 10 minutes early. Maintain good posture and eye contact.
+        After the interview, sending a thank-you message can leave a strong impression.</p>
+    </article>
+
+    <article>
+      <h2>Top In-Demand Job Sectors and Roles in Sri Lanka (2025 and Beyond)</h2>
+      <p>Sri Lanka’s employment landscape is transforming rapidly. Understanding which industries are thriving and what
+        skills employers seek is essential for building a future-proof career. Below are some of the most promising
+        sectors in 2025 and how you can tap into them.</p>
+      <p><strong>1. Information Technology (IT):</strong> The tech sector continues to boom, especially in software
+        development, mobile app creation, data science, and cybersecurity. Job roles include Software Engineer, Frontend
+        Developer, System Analyst, and Network Administrator. To prepare, consider certifications in Java, Python, AWS,
+        or cybersecurity (e.g., CompTIA Security+).</p>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="freepik__the-style-is-candid-image-photography-with-natural__96245.jpeg" alt="Illustration"
+            style="width: 550px; height: 500px;" />
+        </div>
+        <figcaption>A job with Technology(IT)</figcaption>
+      </figure>
+      <p><strong>2. Healthcare:</strong> Driven by population growth and aging, there is a critical need for healthcare
+        professionals. Key roles include General Nurses, Lab Technicians, Physiotherapists, and Mental Health
+        Counselors. With international demand also growing, getting qualified in Sri Lanka opens global opportunities.
+        Soft skills like empathy, patience, and communication are essential in this field.</p>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="freepik__the-style-is-candid-image-photography-with-natural__96246.jpeg" alt="Illustration"
+            style="width: 550px; height: 500px;" />
+        </div>
+        <figcaption>Caring health of other persons</figcaption>
+      </figure>
+      <p><strong>3. Construction and Engineering:</strong> Urban development, highway projects, and real estate
+        expansion are generating high demand for Civil Engineers, Site Supervisors, Quantity Surveyors, and CAD
+        Technicians. Learning project management and gaining site experience is essential. Consider studying structural
+        designor sustainable architecture to stay competitive.</p>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="freepik__the-style-is-candid-image-photography-with-natural__96247.jpeg" alt="Illustration"
+            style="width: 550px; height: 500px;" />
+        </div>
+        <figcaption>Build the world with architecture</figcaption>
+      </figure>
+      <p><strong>4. Education and Online Tutoring:</strong> Digital education has created new careers in online
+        teaching, content development, and virtual classroom management. Teachers with expertise in English, ICT,
+        Science, and Mathematics are especially needed. Platforms like Zoom and Google Classroom have made remote
+        teaching mainstream. TESOL and online teaching certifications can increase job opportunities.</p>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="pexels-julia-m-cameron-4144224.jpg" alt="Illustration" style="width: 350px; height: 500px;" />
+        </div>
+        <figcaption>The online teacher</figcaption>
+      </figure>
+      <p><strong>5. E-commerce and Digital Marketing:</strong> Businesses are shifting online, creating demand for roles
+        like SEO Specialist, Content Writer, Social Media Manager, and Digital Campaign Analyst. Knowledge in platforms
+        such as Google Ads, Meta Business Suite, and Shopify are valuable. Creativity combined with basic graphic design
+        and analytics skills gives job seekers a major advantage.</p>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="pexels-karolina-grabowska-5632379.jpg" alt="Illustration" style="width: 450px; height: 500px;" />
+        </div>
+        <figcaption>A new marketing world</figcaption>
+      </figure>
+      <p><strong>6. Tourism and Hospitality:</strong> As global travel rebounds, Sri Lanka’s tourism sector is
+        recovering. Positions such as Hotel Manager, Tour Guide, Receptionist, and Culinary Expert are opening up again.
+        Language proficiency (especially in English, Chinese, or German) is a major plus in this field.</p>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="pexels-malindabandaralk-16508230.jpg" alt="Illustration" style="width: 700px; height: 500px;" />
+        </div>
+        <figcaption>Global traveling</figcaption>
+      </figure>
+      <p><strong>7. Agriculture and Agritech:</strong> Modernizing agriculture is becoming vital to food security. Roles
+        like Agritech Developer, Agricultural Engineer, and Sustainable Farming Consultant are emerging. Combining
+        traditional farming knowledge with technology like drones, IoT sensors, and hydroponics can create new career
+        paths.</p>
+      <figure>
+        <div style="background-color: #ff9100;">
+          <img src="pexels-eslames1-32414359.jpg" alt="Illustration" style="width: 450px; height: 500px;" />
+        </div>
+        <figcaption>Farming</figcaption>
+      </figure>
+      <p><strong>Tip for Job Seekers:</strong> Constantly update your skills through online platforms like Coursera,
+        LinkedIn Learning, or local NVQ programs. Volunteering or internships also provide real-world experience that
+        can set you apart.</p>
+
+      <h3>Potential Article Titles Based on This Information</h3>
+
+      <h4>General Job Market & Career Guidance:</h4>
+      <ul>
+        <li><strong>Navigating Sri Lanka's Evolving Job Market:</strong> Opportunities and Trends for 2025</li>
+        <li><strong>Your Guide to Career Success in Sri Lanka:</strong> In-Demand Jobs and Essential Skills</li>
+        <li><strong>Beyond the CV:</strong> A Comprehensive Guide to Job Hunting in Sri Lanka</li>
+        <li><strong>Future-Proofing Your Career:</strong> Key Industries and Skills to Master</li>
+        <li><strong>Unlocking Your Potential:</strong> A Job Seeker's Handbook for the Modern Sri Lankan Market</li>
+      </ul>
+
+      <h4>Specific Topics:</h4>
+      <ul>
+        <li>The IT Boom in Sri Lanka: High-Demand Roles and What You Need to Know</li>
+        <li>Digital Marketing and E-commerce: How Online Skills Can Get You Hired Fast</li>
+        <li>Healthcare Careers in Sri Lanka: A Lifeline of Employment Opportunities</li>
+        <li>Construction and Engineering Jobs: Building Sri Lanka’s Future</li>
+        <li>Mastering the Sri Lankan CV: Structure, Style, and Common Mistakes</li>
+        <li>Ace Your Interview: Strategies, Questions, and What Employers Expect</li>
+        <li>The Power of English: Why Strong Communication Opens Doors in Every Industry</li>
+      </ul>
+
+      <h4>Combined Titles:</h4>
+      <ul>
+        <li>Sri Lanka's Top Jobs (2025): Essential Skills, CV Tips, and Interview Strategies</li>
+        <li>From CV to Career: Your Complete Guide to Sri Lanka's Job Market in 2025</li>
+        <li>In-Demand Jobs in Sri Lanka: Skills to Acquire, CVs to Polish, and Interviews to Conquer</li>
+      </ul>
+    </article>
+
+    <article>
+      <h2>Learn English for Career Success</h2>
+      <p>Proficiency in English is a critical skill across nearly every field in Sri Lanka. It enhances your chances of
+        being hired, allows you to access more educational material, and makes you eligible for international
+        opportunities. Start by improving basic grammar and vocabulary. Use YouTube lessons, read English newspapers,
+        and speak with others daily. Even 30 minutes a day can improve fluency over time.</p>
+    </article>
+  </main>
+
+  <footer>
+    &copy; 2025 Encontrar Ihr Job
+  </footer>
+
+</body>
+
+</html>

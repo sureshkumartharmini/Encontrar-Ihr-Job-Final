@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Encontrar Ihr Job - About Us</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: #333;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #242f3e;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 24px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    nav a:hover i,
+    nav a:focus i {
+      color: #fff;
+    }
+
+    header {
+      position: relative;
+      background: url('a-vibrant-stylized-digital-painting-depi_GZSqJPw4TTuZgtdeYSumVw_YTdmzjVMQ6OpBrzpn2qLTg.jpeg') center/cover no-repeat;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(36, 47, 62, 0.6);
+      z-index: 0;
+    }
+
+    header>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      margin: 0 0 8px;
+      letter-spacing: 2px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    header p {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    main {
+      max-width: 900px;
+      background: #fff;
+      margin: 40px auto 80px;
+      border-radius: 12px;
+      padding: 40px 40px 50px;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: #242f3e;
+      margin-bottom: 18px;
+      border-left: 6px solid #1abc9c;
+      padding-left: 12px;
+      margin-top: 48px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #4a4a4a;
+      margin-bottom: 24px;
+    }
+
+    ul {
+      color: #555;
+      font-size: 1.05rem;
+      margin-left: 28px;
+      margin-bottom: 30px;
+      list-style: inside disc;
+    }
+
+    figure {
+      margin: 35px 0;
+      text-align: center;
+    }
+
+    figure div {
+      display: inline-block;
+      border-radius: 24px;
+      padding: 18px;
+      background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+      box-shadow: 0 10px 24px rgba(26, 188, 156, 0.3);
+    }
+
+    figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    figcaption {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #888;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #777;
+      background: #f9fafb;
+      letter-spacing: 1.2px;
+    }
+
+    #signOutBtn {
+      all: unset;
+      color: #bfc7d5;
+      font-weight: 600;
+      font-size: 17px;
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    #signOutBtn:hover,
+    #signOutBtn:focus {
+      color: #fff;
+      background-color: #1abc9c;
+      box-shadow: 0 4px 12px rgba(26, 188, 156, 0.5);
+      outline: none;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        margin: 20px 15px 40px;
+        padding: 30px 25px 40px;
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 14px 12px;
+      }
+
+      nav a {
+        font-size: 15px;
+        padding: 7px 14px;
+      }
+
+      figure div {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Encontrar Ihr Job</h1>
+    <p>Helping Sri Lankans find their future</p>
+  </header>
+
+  <nav>
+    <a href="index.html">About Us</a>
+    <a href="application.html">Apply for Job</a>
+    <a href="articles.html">Job Articles</a>
+    <a href="jobs.html">Job Listings</a>
+    <a href="employment-history.html">Global & Local History</a>
+    <a href="history.html">Application History</a>
+    <button id="signOutBtn" onclick="signOut()">Sign Out</button>
+  </nav>
+  <script>
+    function signOut() {
+      localStorage.removeItem("loggedIn");
+      alert("You have signed out.");
+      window.location.href = "signin.html";
+    }
+  </script>
+  <main>
+    <h2>In Sri Lanka, Finding Employment</h2>
+    <figure>
+      <div>
+        <img src="job-finder.png" alt="Job Finder Illustration" style="width: 350px; height: 500px;" />
+      </div>
+      <figcaption>Sri Lankan Job Seekers</figcaption>
+    </figure>
+    <p>
+      In Sri Lanka, finding employment, particularly for those who have recently completed their education or training,
+      can often be a challenging and uncertain journey. Many individuals possess valuable skills and qualifications but
+      lack the necessary guidance, resources, and connections to navigate the job market effectively. This is where
+      <strong>Encontrar Ihr Job</strong> steps in as a vital digital platform, aiming to bridge this gap and empower Sri
+      Lankan job seekers.
+    </p>
+
+    <h2>What is Encontrar Ihr Job?</h2>
+    <figure>
+      <div>
+        <img src="friendly-caucasian-afro-american-business-people-shaking-hands.jpg" alt="Illustration"
+          style="width: 550px; height: 500px;" />
+      </div>
+      <figcaption></figcaption>
+    </figure>
+    <p>
+      <strong>Encontrar Ihr Job</strong> is a comprehensive web application designed specifically for unemployed
+      individuals in Sri Lanka. It serves as a centralized hub where job seekers can not only discover the latest job
+      opportunities but also gain crucial knowledge and support for their career development. Unlike a simple job board,
+      Encontrar Ihr Job provides a holistic approach to job searching, incorporating educational resources, practical
+      advice, and personalized tracking tools. It's built to be user-friendly, accessible, and highly relevant to the
+      unique needs of the Sri Lankan workforce.
+    </p>
+
+    <h2>What is the Purpose of This?</h2>
+    <p>
+      The core purpose of Encontrar Ihr Job is to empower unemployed Sri Lankans by making the job search process more
+      efficient, informed, and ultimately, successful. Many job seekers face barriers such as limited access to current
+      job postings, a lack of understanding of industry expectations, and difficulties in presenting their skills
+      effectively. Our platform addresses these challenges head-on by:
+    </p>
+    <ul>
+      <li>Centralizing Opportunities: Bringing together a wide array of job vacancies from various sectors across Sri
+        Lanka, making it easier for users to find relevant openings in one place.</li>
+      <li>Providing Education and Knowledge: Offering modules and articles on essential job-related topics, such as
+        resume writing, interview preparation, professional etiquette, and career planning.</li>
+      <li>Facilitating Applications: Simplifying the application process through an intuitive online form, reducing the
+        bureaucratic hurdles often associated with job hunting.</li>
+      <li>Personalizing the Experience: Allowing users to track their application history, manage their profiles, and
+        receive updates relevant to their career interests.</li>
+    </ul>
+    <p>
+      By doing so, Encontrar Ihr Job aims to reduce the time and effort individuals spend on their job search, while
+      simultaneously increasing their chances of securing meaningful employment.
+    </p>
+
+    <h2>How Does It Help for Sri Lanka?</h2>
+    <p>
+      The impact of Encontrar Ihr Job extends beyond individual job seekers, contributing significantly to Sri Lanka's
+      economic and social well-being. Unemployment, particularly among youth and recent graduates, can lead to various
+      socio-economic challenges. By actively facilitating employment, Encontrar Ihr Job helps:
+    </p>
+    <ul>
+      <li>Boost the Economy: By connecting skilled individuals with available jobs, the platform contributes to
+        increased labor force participation and productivity.</li>
+      <li>Reduce Unemployment Rates: Especially addressing the challenge of youth unemployment by offering targeted
+        resources for young job seekers.</li>
+      <li>Improve Human Capital Utilization: Ensures that the investment in education and training across the country is
+        fully utilized.</li>
+      <li>Foster a Skilled Workforce: Helps elevate the overall professional standards and readiness of the Sri Lankan
+        workforce.</li>
+      <li>Promote Digital Literacy: Encourages the use of digital tools for career development, contributing to a more
+        technologically adept society.</li>
+    </ul>
+    <figure>
+      <div>
+        <img src="people-collage-design.jpg" alt="Illustration" style="width: 650px; height: 350px;" />
+      </div>
+      <figcaption></figcaption>
+    </figure>
+    <p>
+      In essence, Encontrar Ihr Job acts as a catalyst for positive change, helping Sri Lanka leverage its human
+      potential for national development.
+    </p>
+
+    <h2>How Do We Use This?</h2>
+    <figure>
+      <div>
+        <img src="pexels-cottonbro-4065864.jpg" alt="Illustration" style="width: 550px; height: 550px;" />
+      </div>
+      <figcaption></figcaption>
+    </figure>
+    <p>
+      Using Encontrar Ihr Job is designed to be straightforward and intuitive. To embark on your career journey with us:
+    </p>
+    <ul>
+      <li><strong>Create Your Profile:</strong> Begin by signing up and creating a detailed personal profile including
+        your education, skills, and career preferences.</li>
+      <li><strong>Explore Job Opportunities:</strong> Browse vacancies using filters by industry, location, and
+        experience level.</li>
+      <li><strong>Gain Knowledge and Tips:</strong> Access guides on resume writing, interviews, and more in our
+        articles section.</li>
+      <li><strong>Apply for Jobs:</strong> Use the simple form to apply directly using your saved profile data.</li>
+      <li><strong>Track Your Applications:</strong> Monitor your submissions and statuses in the application history
+        section.</li>
+    </ul>
+    <p>
+      By actively utilizing all features, users can significantly enhance their chances of securing a fulfilling job in
+      Sri Lanka. We are here to support every step of your career journey.
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2025 Encontrar Ihr Job. All rights reserved.
+  </footer>
+
+</body>
+
+</html>
